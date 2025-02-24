@@ -1,84 +1,102 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Favori Dizi Web Sayfası</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Favorite Film</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 50%;
+      text-align: center;
+    }
+    .close {
+      cursor: pointer;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <header>
-    <nav>
-      <div class="logo">Dizi Adı</div>
-      <ul class="nav-links">
-        <li><a href="#home">Ana Sayfa</a></li>
-        <li><a href="#characters">Karakterler</a></li>
-        <li><a href="#episodes">Bölümler</a></li>
-      </ul>
+  <header class="header">
+    <a href="#" class="logo">Berkay.</a>
+    <nav class="navbar">
+      <a href="#" class="active">Series</a>
+      <a href="https://www.imdb.com/title/tt7631058/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_rings" target="_blank">IMDB</a>
+      <a href="https://www.primevideo.com/detail/0H46RQ3SRWK7EITF1BI2G2FZ8B/ref=atv_plr_landingpage_play" target="_blank">Episodes</a>
+      <a href="#">Contact</a>
     </nav>
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
   </header>
-
-  <!-- Ana Sayfa -->
-  <main>
-    <section id="home">
-      <h1>Dizinin Adı</h1>
-      <img src="img/dizi-afisi.jpg" alt="Dizi Afişi" class="banner">
+  <section class="home">
+    <div class="home-content">
+      <h1>The Rings of Power</h1>
+      <h2>Sauron has backed, with a dream that conquer middle earth</h2>
       <p>
-        Dizinin konusu hakkında kısa bir açıklama. Aksiyon, dram ve macera dolu bir hikaye seni bekliyor!
+        Epic drama set thousands of years before the events of J.R.R. Tolkien's 'The Hobbit' and 'The Lord of the Rings' follows an ensemble cast of characters, both familiar and new, as they confront the long-feared re-emergence of evil to Middle-earth.
       </p>
-      <a href="https://www.primevideo.com/detail/0UB2ZI7XTDU5ENEYYH4GR048TQ/ref=atv_hm_hom_c_s7r3Un_brws_3_1?jic=8%7CEgRzdm9k" 
-         target="_blank" 
-         class="btn">Watch Now</a>
-    </section>
-
-    <!-- Karakterler -->
-    <section id="characters">
-      <h2>Ana Karakterler</h2>
-      <div class="characters-container">
-        <div class="character">
-          <img src="img/karakter1.jpg" alt="Karakter 1">
-          <p>Karakter 1 - Lider ve stratejist.</p>
-        </div>
-        <div class="character">
-          <img src="img/karakter2.jpg" alt="Karakter 2">
-          <p>Karakter 2 - Güçlü ve sadık.</p>
-        </div>
-        <div class="character">
-          <img src="img/karakter3.jpg" alt="Karakter 3">
-          <p>Karakter 3 - Zeki ve gizemli.</p>
-        </div>
+      <div class="btn-box">
+        <a href="#" class="btn btn-primary" id="openModal">Details</a>
+        <a href="https://www.primevideo.com/detail/0H46RQ3SRWK7EITF1BI2G2FZ8B/ref=atv_plr_landingpage_play" class="btn btn-secondary" target="_blank">Watch now</a>
       </div>
-    </section>
+    </div>
+  </section>
+  
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Favorite Scene</h2>
+      <p>
+        One of the most breathtaking moments in "The Rings of Power" is when Galadriel stands at the edge of the Sundering Seas, reflecting on her past and the looming darkness. The cinematography, the powerful score, and the sheer intensity of the moment make it truly unforgettable.
+      </p>
+      <img src="assets/scene.jpg" alt="Favorite Scene" class="scene-image" style="max-width: 100%; border-radius: 8px;">
+    </div>
+  </div>
+  
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navbar = document.querySelector(".navbar");
+    const modal = document.getElementById("myModal");
+    const btn = document.getElementById("openModal");
+    const span = document.querySelector(".close");
 
-    <!-- Bölümler -->
-    <section id="episodes">
-      <h2>Bölümler</h2>
-      <table>
-        <tr>
-          <th>Bölüm</th>
-          <th>Açıklama</th>
-        </tr>
-        <tr>
-          <td>1. Bölüm</td>
-          <td>Heyecan verici bir başlangıç.</td>
-        </tr>
-        <tr>
-          <td>2. Bölüm</td>
-          <td>Karakterler arası gerilim artıyor.</td>
-        </tr>
-        <tr>
-          <td>3. Bölüm</td>
-          <td>Büyük bir mücadele başlıyor.</td>
-        </tr>
-      </table>
-    </section>
-  </main>
+    hamburger.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+    });
 
-  <!-- Footer -->
-  <footer>
-    <p>Bu sayfa [Adınız] tarafından tasarlanmıştır.</p>
-  </footer>
+    btn.onclick = function() {
+      modal.style.display = "flex";
+    }
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
